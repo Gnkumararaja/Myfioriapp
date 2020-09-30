@@ -1,0 +1,99 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="first.fiori.controller.View2"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="View2" >
+		<content>
+			<ObjectHeader id="idHeader" intro="{type}" title="{fName}" icon="{fimage}" number="{price}" numberUnit="pc"></ObjectHeader>
+			<IconTabBar>
+				<items>
+					<IconTabFilter text="Addition Info" key="idAi" icon="sap-icon://tags" iconColor="Negative">
+						<content>
+							<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form0">
+							<sap.ui.layout.form:content>
+							<core:Title text="Additional Data" id="__title0"/>
+							<Label text = "Type"/>
+							<Text text = "{type}"/>
+							<Label text = "Price"/>
+							<Text text = "{price} pc" id="__text20"/></sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Suppliers" key="idSupp" icon="sap-icon://supplier" iconColor="Negative">
+						<content>
+							<Table items="{/supplier}" itemPress="onNxt" noDataText="Drop column list here and columns in the area above" id="idSuppTable">
+								<items>
+									<ColumnListItem type="Navigation" >
+										<cells>
+											<Text text="{sName}"/>
+											<Text text="{sCity}"/>
+											<Text text="{sinceWhen}"/>
+											<ObjectStatus text="{status}" state="{
+											path:'status',
+											formatter: '.formatter.setStatus'
+											}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+								<columns>
+								<Column id="__column0">
+									<header>
+										<Label text="Name" id="__label12"/>
+									</header>
+								</Column>
+								<Column id="__column1">
+									<header>
+										<Label text="City" id="__label13"/>
+									</header>
+								</Column>
+								<Column id="__column2">
+									<header>
+										<Label text="Since when" id="__label14"/>
+									</header>
+								</Column>
+								<Column id="__column3">
+									<header>
+										<Label text="Status" id="__label15"></Label>
+									</header>
+								</Column>
+								</columns>
+							</Table>
+						</content>
+						 </IconTabFilter>
+					<IconTabFilter text="Select City" key="idCity" icon="sap-icon://home" iconColor="Negative"> 
+					<content>
+						<Select items="{/city}" id="idCity1">
+							<items>
+								<core:ListItem text="{cName}" key="{city}"/>
+							</items>
+						</Select>
+						
+							<ComboBox items="{/city}" id="idCity2">
+							<items>
+								<core:ListItem text="{cName}" key="{city}"/>
+							</items>
+						</ComboBox>
+						
+						<MultiComboBox items="{/city}" id="idCity3">
+							<items>
+								<core:ListItem text="{cName}" key="{city}"/>
+							</items>
+						</MultiComboBox>
+					</content>
+					</IconTabFilter>
+					<IconTabFilter text="Address" key="idAddress" icon="sap-icon://map" iconColor="Positive" id="locate" > 
+					<core:Fragment fragmentName="first.fiori.fragments.Addressinfo"
+					type="XML"></core:Fragment>
+					<core:Fragment fragmentName="first.fiori.fragments.Addressinfo"
+					type="XML"></core:Fragment>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Approve" type="Accept" press="onApprove"></Button>
+				<Button text="Reject" type="Reject" press="onReject"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

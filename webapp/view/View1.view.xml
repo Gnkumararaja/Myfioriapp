@@ -1,0 +1,49 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="first.fiori.controller.View1"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="View1">
+		<headerContent>
+			<Button icon="sap-icon://arrow-right" press="onShowme"/>
+		</headerContent>
+		<content>
+			<!--	<Button text="Show me" press="onShowme"></Button>-->
+			<SearchField id="idSearch" search="onSearch"></SearchField>
+			<List  updateFinished="onUpdate" items="{
+			path: '/fruits'
+			}" id="Idfruits" selectionChange= "onItemPress" mode="SingleSelectMaster" >
+				<!--<DisplayListItem
+					sorter:{
+			path: 'type',
+			group: true
+			}
+			items="{/fruits}"	 
+				label="{fName}"
+				value="{type}"></DisplayListItem>-->
+				<ObjectListItem title="{fName}" intro="{type}" icon="{fimage}" number="{price}" numberUnit="pc."></ObjectListItem>
+				<!--<StandardListItem icon="sap-icon://e-care" info="Good for digestion" title="Banana"></StandardListItem> 
+				<ObjectListItem title="Pomagranate" intro="It will help avoid stomach problems" icon="https://images.agoramedia.com/everydayhealth/gcms/All-About-Pomegranate-722x406.jpg" number="100" numberUnit="pc."></ObjectListItem>
+				
+				<InputListItem>
+					<HBox>
+						<Label text="Best for Eyes"/>
+						<Input></Input>
+					</HBox>
+				</InputListItem>
+				<CustomListItem>
+					<VBox>
+					<Label text="Do you like the example"/>
+					<Switch></Switch>
+					</VBox>
+				</CustomListItem>
+				<FeedListItem sender="Donald Trump" icon="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/05/12/104466932-PE_Color.240x240.jpg?v=1494613853" info="Hello Kumar"></FeedListItem>
+				<ActionListItem text="Book Now@"></ActionListItem>-->
+			</List>
+			<List id="idynamic" visible = "false"></List>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button icon="sap-icon://filter" press="onFilter"></Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

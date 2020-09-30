@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<script src = "https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-libs = "sap.m, sap.ui.layout, sap.ui.table" 
+		data-sap-ui-theme = "sap_bluecrystal"
+		data-sap-ui-xx-bindingSyntax="complex"
+		data-sap-ui-resourceroots = '{
+		"first.fiori" : "./"
+		}'>
+	
+	<link href="css/myStyle.css" rel="stylesheet" type="text/css">
+			
+		</script>
+		
+	
+			<!--var sa = new sap.ui.view("idfirst",{
+				viewName: "jerry.view.sample",
+				type:"JS"
+			});-->
+		<script>		
+			var oVieww = new sap.ui.view("idMyXml",{
+				viewName: "first.fiori.view.App",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oView1 = new sap.ui.view("idView1",{
+				viewName: "first.fiori.view.View1",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oView2 = new sap.ui.view("idView2",{
+				viewName: "first.fiori.view.View2",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oView3 = new sap.ui.view("idView3",{
+				viewName: "first.fiori.view.View3",
+				type:sap.ui.core.mvc.ViewType.XML
+			});
+			
+			var oApp = oVieww.byId("idApp");
+			oApp.addMasterPage(oView1).addDetailPage(oView2).addPage(oView3);
+			//oApp.addPage(oView1).addPage(oView2);
+			oVieww.placeAt("content");
+			
+		</script>
+	</head>
+	<body class="sapUiBody">
+		<div id="content"></div>
+	</body>
+</html>
